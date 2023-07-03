@@ -1,0 +1,30 @@
+<h1>
+  {{#if users}}
+  Update user:
+  {{else}}
+  Add new user:
+  {{/if}}
+</h1>
+
+<form action="/adduser/{{#if users}}{{users.id}}{{/if}}" method="post">
+  <div>
+    <label for="username">USERNAME:</label>
+    <input type="text" name="username" value="{{#if users}}{{users.username}}{{/if}}"/>
+  </div>
+
+  <div>
+    <label for="password">PASSWORD:</label>
+    <input type="password" name="password" value="{{#if users}}{{users.password}}{{/if}}"/>
+  </div>
+  <div>
+    <label for="avatar">AVATAR:</label>
+    <input type="text" name="avatar" value="{{#if users}}{{users.avatar}}{{/if}}"/>
+  </div>
+  <div>
+    <label for="typeSub">TYPE:</label>
+    <input type="number" min="0" max="1" name="typeSub" value="{{#if users}}{{users.typeSub}}{{/if}}"/>
+  </div>
+
+  <input type="submit" value="{{#if users}}Update user{{else}}Add user{{/if}}"/>
+
+</form>

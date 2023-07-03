@@ -1,0 +1,68 @@
+<h1>List of users</h1>
+{{#if users}}
+  <div class="row">
+    <ul style="list-style: none;">
+      {{#each users}}
+        <li class="col-md-3 col-sm-6 col-xs-12 isotope-item leadership">
+          <div class="team-item thumbnail">
+            <a class="thumb-info team">
+              <img
+                src="{{this.avatar}}"
+                alt="UserAvatar"
+                style="width: 585px;"
+              />
+              <span class="thumb-info-title">
+                <span class="thumb-info-inner">{{this.username}}</span>
+                <span class="thumb-info-type">
+                  {{#if this.typeSub}}
+                    PREMIUM
+                  {{else}}
+                    BASIC
+                  {{/if}}
+                </span>
+              </span>
+            </a>
+            <div style="display: flex;">
+              <a
+                href="/auth/register/{{this.id}}"
+                style="display: flex; margin:auto;"
+              >
+                <button
+                  class="btn btn-primary btn-lg"
+                  type="button"
+                  style="margin-top: 10px; margin-bottom: 10px;"
+                >UPDATE</button>
+              </a>
+              <button
+                class="btn btn-primary btn-lg delete"
+                style="margin-top: 10px; margin-bottom: 10px; margin:auto;"
+                data-id="{{this.id}}"
+              >DELETE</button>
+            </div>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+  <a href="/">
+    <button class="btn btn-primary btn-lg" type="button">HOME</button>
+  </a>
+  <a href="/auth/register">
+    <button class="btn btn-primary btn-lg" type="button">ADD USER</button>
+  </a>
+{{else}}
+  <h1>No data show</h1>
+  <a href="/">
+    <button class="btn btn-primary btn-lg" type="button">HOME</button>
+  </a>
+  <a href="/auth/register">
+    <button class="btn btn-primary btn-lg" type="button">ADD USER</button>
+  </a>
+{{/if}}
+<script>
+
+  $(".delete").on("click", function(){ let id = this.dataset.id;
+  fetch(`/deleteuser/${id}`, { method:"DELETE" }).then((data)=>{
+  if(data.status==200){ $(this).parent().parent().remove(); } }); })
+
+</script>

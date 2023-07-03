@@ -1,0 +1,108 @@
+<div class="container">
+  <div class="row">
+    <div
+      class="col-md-12"
+      style="display: flex;
+    justify-content: center;
+    align-items: center;"
+    >
+      <div class="row featured-boxes login">
+        <div>
+          <div class="featured-box featured-box-secundary default info-content">
+            <div class="box-content">
+              <h1>
+                {{#if users}}
+                  Update user:
+                {{else}}
+                  Add new user:
+                {{/if}}
+              </h1>
+              <form action="" id="" method="post">
+                <div class="row">
+                  <div class="form-group">
+                    <div class="col-md-12">
+                      <label>Name</label>
+                      <input
+                        type="text"
+                        value="{{#if users}}{{users.username}}{{/if}}"
+                        class="form-control input-lg"
+                        name="username"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group">
+                    <div class="col-md-6">
+                      <label>Password</label>
+                      <input
+                        type="password"
+                        value="{{#if users}}{{users.password}}{{/if}}"
+                        class="form-control input-lg"
+                        name="password"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label>Avatar</label>
+                      <input
+                        type="text"
+                        value="{{#if users}}{{users.avatar}}{{/if}}"
+                        class="form-control input-lg"
+                        name="avatar"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="row"
+                  style="display: flex; justify-content: center;"
+                >
+                  <label>Type</label>
+                </div>
+
+                <div
+                  class="row"
+                  style="display: flex; justify-content:space-between;"
+                >
+                  <div class="form-group">
+                    <div class="col-md-2" style="margin-top: 12px;">
+                      <label>BASIC</label>
+                    </div>
+                    <div class="col-md-8">
+                      <input
+                        type="range"
+                        min="0"
+                        max="1"
+                        value="{{#if users}}{{users.typeSub}}{{/if}}"
+                        class="form-control input-lg"
+                        name="typeSub"
+                      />
+                    </div>
+                    <div class="col-md-2" style="margin-top: 12px;">
+                      <label>PREMIUM</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <input
+                      type="submit"
+                      value="Register"
+                      class="btn btn-primary pull-right push-bottom"
+                      data-loading-text="Loading..."
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="display: flex; justify-content: space-around;">
+  <a href="/">
+    <button class="btn btn-primary btn-lg" type="button">HOME</button>
+  </a>
+</div>
